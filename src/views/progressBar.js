@@ -20,6 +20,6 @@ export const createProgressBar = (totalQuestions) => {
       const percentage = (current / totalQuestions) * 100;
       bar.style.width = `${percentage}%`;
       label.innerText = `Question ${current} of ${totalQuestions}`;
-    }
+    },
   };
-}
+};

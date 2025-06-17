@@ -4,7 +4,6 @@ import { initQuestionPage } from './questionPage.js';
 import { createProgressBar } from '../views/progressBar.js';
 import { quizData } from '../data.js';
 
-
 let progressBar = null;
 
 export const initWelcomePage = () => {
