@@ -14,124 +14,124 @@ export const quizData = {
   // the questions in the quiz
   questions: [
     {
-      text: "According to the Agile Manifesto, what is valued more than processes and tools?",
+      text: 'According to the Agile Manifesto, what is valued more than processes and tools?',
       answers: {
-        a: "Comprehensive documentation",
-        b: "Individuals and interactions",
-        c: "Contract negotiation",
-        d: "Following a plan"
+        a: 'Comprehensive documentation',
+        b: 'Individuals and interactions',
+        c: 'Contract negotiation',
+        d: 'Following a plan',
       },
-      correct: "b",
+      correct: 'b',
       selected: null,
-      links: []
+      links: [],
     },
     {
-      text: "What is the primary measure of progress in Agile?",
+      text: 'What is the primary measure of progress in Agile?',
       answers: {
-        a: "Working software",
-        b: "Lines of code",
-        c: "Documentation pages",
-        d: "Story points"
+        a: 'Working software',
+        b: 'Lines of code',
+        c: 'Documentation pages',
+        d: 'Story points',
       },
-      correct: "a",
+      correct: 'a',
       selected: null,
-      links: []
+      links: [],
     },
     {
-      text: "In Scrum, who is responsible for maximizing value and managing the Product Backlog?",
+      text: 'In Scrum, who is responsible for maximizing value and managing the Product Backlog?',
       answers: {
-        a: "Stakeholders",
-        b: "Scrum Master",
-        c: "Development Team",
-        d: "Product Owner",
+        a: 'Stakeholders',
+        b: 'Scrum Master',
+        c: 'Development Team',
+        d: 'Product Owner',
       },
-      correct: "d",
+      correct: 'd',
       selected: null,
-      links: []
+      links: [],
     },
     {
-      text: "How long is a typical Scrum Sprint?",
+      text: 'How long is a typical Scrum Sprint?',
       answers: {
-        a: "12 weeks",
-        b: "6 months",
-        c: "1 day",
-        d: "2-4 weeks",
+        a: '12 weeks',
+        b: '6 months',
+        c: '1 day',
+        d: '2-4 weeks',
       },
-      correct: "d",
+      correct: 'd',
       selected: null,
-      links: []
+      links: [],
     },
     {
-      text: "The daily meeting where team members share progress and blockers is called:",
+      text: 'The daily meeting where team members share progress and blockers is called:',
       answers: {
-        a: "Daily Scrum",
-        b: "Sprint Review",
-        c: "Retrospective",
-        d: "Backlog Refinement"
+        a: 'Daily Scrum',
+        b: 'Sprint Review',
+        c: 'Retrospective',
+        d: 'Backlog Refinement',
       },
-      correct: "a",
+      correct: 'a',
       selected: null,
-      links: []
+      links: [],
     },
     {
-      text: "What document lists all desired features and fixes for a product in Scrum?",
+      text: 'What document lists all desired features and fixes for a product in Scrum?',
       answers: {
-        a: "Project Charter",
-        b: "Sprint Backlog",
-        c: "Product Backlog",
-        d: "Definition of Done"
+        a: 'Project Charter',
+        b: 'Sprint Backlog',
+        c: 'Product Backlog',
+        d: 'Definition of Done',
       },
-      correct: "c",
+      correct: 'c',
       selected: null,
-      links: []
+      links: [],
     },
     {
-      text: "Agile welcomes changes even late in development because:",
+      text: 'Agile welcomes changes even late in development because:',
       answers: {
-        a: "Contracts require it",
-        b: "Change provides competitive advantage",
-        c: "Developers prefer it",
-        d: "Documentation discourages it"
+        a: 'Contracts require it',
+        b: 'Change provides competitive advantage',
+        c: 'Developers prefer it',
+        d: 'Documentation discourages it',
       },
-      correct: "b",
+      correct: 'b',
       selected: null,
-      links: []
+      links: [],
     },
     {
-      text: "Which principle promotes a sustainable pace for sponsors, developers, and users?",
+      text: 'Which principle promotes a sustainable pace for sponsors, developers, and users?',
       answers: {
-        a: "Agile promotes sustainable development",
-        b: "Individuals and interactions",
-        c: "Responding to change",
-        d: "Maximizing work not done"
+        a: 'Agile promotes sustainable development',
+        b: 'Individuals and interactions',
+        c: 'Responding to change',
+        d: 'Maximizing work not done',
       },
-      correct: "a",
+      correct: 'a',
       selected: null,
-      links: []
+      links: [],
     },
     {
-      text: "Who facilitates Scrum events and removes impediments?",
+      text: 'Who facilitates Scrum events and removes impediments?',
       answers: {
-        a:"User",
-        b: "Product Owner",
-        c: "Project Manager",
-        d: "Scrum Master"
+        a: 'User',
+        b: 'Product Owner',
+        c: 'Project Manager',
+        d: 'Scrum Master',
       },
-      correct: "d",
+      correct: 'd',
       selected: null,
-      links: []
+      links: [],
     },
     {
-      text: "After each Sprint, the team reflects on how to improve during the:",
+      text: 'After each Sprint, the team reflects on how to improve during the:',
       answers: {
-        a: "Sprint Retrospective",
-        b: "Sprint Planning",
-        c: "Daily Scrum",
-        d: "Sprint Review"
+        a: 'Sprint Retrospective',
+        b: 'Sprint Planning',
+        c: 'Daily Scrum',
+        d: 'Sprint Review',
       },
-      correct: "a",
+      correct: 'a',
       selected: null,
-      links: []
-    }
-  ]
+      links: [],
+    },
+  ],
 };
