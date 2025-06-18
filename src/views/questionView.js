@@ -5,7 +5,6 @@ import {
   RESET_QUESTION_BUTTON_ID,
 } from '../constants.js';
 
-
 export const createQuestionElement = (question) => {
   const element = document.createElement('div');
 
