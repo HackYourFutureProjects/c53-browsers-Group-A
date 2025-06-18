@@ -14,7 +14,7 @@ export const createQuestionElement = (question) => {
     <ul id="${ANSWERS_LIST_ID}">
     </ul>
 
-    <button id="${NEXT_QUESTION_BUTTON_ID}" style="display:none;">
+    <button id="${NEXT_QUESTION_BUTTON_ID}">
       Next question
     </button>
 
@@ -22,7 +22,7 @@ export const createQuestionElement = (question) => {
       Skip & Show Answer
     </button>
 
-    <button id="${RESET_QUESTION_BUTTON_ID}" style="display:none;">
+    <button id="${RESET_QUESTION_BUTTON_ID}">
       Reset
     </button>
   `;
