@@ -1,25 +1,17 @@
-export const createProgressBar = (totalQuestions) => {
-  const container = document.createElement('div');
-  container.className = 'progressBarContainer';
+export const createProgressBar = (currentQuestion, totalQuestions) => {
+  // Calculate progress percentage
+  const percentage = (currentQuestion / totalQuestions) * 100;
 
-  const label = document.createElement('div');
-  label.className = 'progressBarLabel';
-  label.innerText = `Question 1 of ${totalQuestions}`;
-
+  // Create the visual progress bar
   const bar = document.createElement('div');
-  bar.className = 'progressBar';
-  bar.style.width = '0%';
+  bar.className = 'progress-bar';
+  bar.style.width = `${percentage}%`;
 
-  container.appendChild(label);
-  container.appendChild(bar);
+  // Wrap it in a container
+  const progressBarContainer = document.createElement('div');
+  progressBarContainer.className = 'progressBarContainer';
+  progressBarContainer.appendChild(bar);
 
-  return {
-    element: container,
-    update(currentQuestionIndex) {
-      const current = currentQuestionIndex + 1;
-      const percentage = (current / totalQuestions) * 100;
-      bar.style.width = `${percentage}%`;
-      label.innerText = `Question ${current} of ${totalQuestions}`;
-    },
-  };
+  // Return the complete component
+  return progressBarContainer;
 };
