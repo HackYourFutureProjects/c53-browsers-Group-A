@@ -4,8 +4,7 @@ import {
   SKIP_QUESTION_BUTTON_ID,
   RESET_QUESTION_BUTTON_ID,
 } from '../constants.js';
-// import { quizData } from '../data.js';
-// USER_INTERFACE_ID
+
 
 export const createQuestionElement = (question) => {
   const element = document.createElement('div');
