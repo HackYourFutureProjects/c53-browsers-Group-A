@@ -14,7 +14,8 @@ export const quizData = {
   // the questions in the quiz
   questions: [
     {
-      text: 'According to the Agile Manifesto, what is valued more than processes and tools?',
+      text:
+        'According to the Agile Manifesto, what is valued more than processes and tools?',
       answers: {
         a: 'Comprehensive documentation',
         b: 'Individuals and interactions',
@@ -38,7 +39,8 @@ export const quizData = {
       links: [],
     },
     {
-      text: 'In Scrum, who is responsible for maximizing value and managing the Product Backlog?',
+      text:
+        'In Scrum, who is responsible for maximizing value and managing the Product Backlog?',
       answers: {
         a: 'Stakeholders',
         b: 'Scrum Master',
@@ -62,7 +64,8 @@ export const quizData = {
       links: [],
     },
     {
-      text: 'The daily meeting where team members share progress and blockers is called:',
+      text:
+        'The daily meeting where team members share progress and blockers is called:',
       answers: {
         a: 'Daily Scrum',
         b: 'Sprint Review',
@@ -74,7 +77,8 @@ export const quizData = {
       links: [],
     },
     {
-      text: 'What document lists all desired features and fixes for a product in Scrum?',
+      text:
+        'What document lists all desired features and fixes for a product in Scrum?',
       answers: {
         a: 'Project Charter',
         b: 'Sprint Backlog',
@@ -98,7 +102,8 @@ export const quizData = {
       links: [],
     },
     {
-      text: 'Which principle promotes a sustainable pace for sponsors, developers, and users?',
+      text:
+        'Which principle promotes a sustainable pace for sponsors, developers, and users?',
       answers: {
         a: 'Agile promotes sustainable development',
         b: 'Individuals and interactions',
@@ -122,7 +127,8 @@ export const quizData = {
       links: [],
     },
     {
-      text: 'After each Sprint, the team reflects on how to improve during the:',
+      text:
+        'After each Sprint, the team reflects on how to improve during the:',
       answers: {
         a: 'Sprint Retrospective',
         b: 'Sprint Planning',
