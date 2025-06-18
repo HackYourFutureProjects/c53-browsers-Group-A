@@ -5,10 +5,17 @@ import {
 } from '../constants.js';
 import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
+import { createProgressBar } from '../views/progressBar.js';
 import { quizData } from '../data.js';
-import { progressBar } from './welcomePage.js';
+
+let progressBar = null;
 
 export const initQuestionPage = () => {
+  if (!progressBar) {
+    progressBar = createProgressBar(quizData.questions.length);
+    document.body.prepend(progressBar.element);
+  }
+  progressBar.update(quizData.currentQuestionIndex);
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = '';
 
