@@ -3,7 +3,6 @@ import {
   ANSWERS_LIST_ID,
   NEXT_QUESTION_BUTTON_ID,
   SKIP_QUESTION_BUTTON_ID,
-  USER_INTERFACE_ID,
 } from '../constants.js';
 
 import { createQuestionElement } from '../views/questionView.js';
@@ -11,7 +10,6 @@ import { createAnswerElement } from '../views/answerView.js';
 import { createProgressBar } from '../views/progressBar.js';
 import { quizData } from '../data.js';
 import { showResult } from '../actions/showResult.js';
-import { createProgressBar } from '../views/progressBar.js';
 import { initWelcomePage } from '../pages/welcomePage.js';
 import { SkipButton } from '../actions/SkipButton.js';
 
