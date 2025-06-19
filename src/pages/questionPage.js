@@ -22,7 +22,7 @@ export const initQuestionPage = () => {
 
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = '';
-  
+
   // Create and append progress bar showing current question out of total
   const progressBarElement = createProgressBar(
     currentIndex + 1,
@@ -61,7 +61,6 @@ export const initQuestionPage = () => {
 
         result.resetButton.addEventListener('click', () => {
           quizData.currentQuestionIndex = 0;
-
 
           quizData.questions.forEach((question) => {
             question.answers = false;
