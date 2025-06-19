@@ -16,6 +16,29 @@ ul {
   list-style: none;
 }
 
+.answer-option {
+  cursor: pointer;
+  padding: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.answer-option.correct {
+  background-color: green;
+  color: white;
+}
+
+.answer-option.wrong {
+  background-color: red;
+  color: white;
+}
+
+.answer-option.disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
 .progressBarContainer {
   width: 100%;
   height: 10px;

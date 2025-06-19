@@ -2,11 +2,18 @@ import {
   USER_INTERFACE_ID,
   ANSWERS_LIST_ID,
   NEXT_QUESTION_BUTTON_ID,
+  SKIP_QUESTION_BUTTON_ID,
+  USER_INTERFACE_ID,
 } from '../constants.js';
+
 import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { createProgressBar } from '../views/progressBar.js';
 import { quizData } from '../data.js';
+import { showResult } from '../actions/showResult.js';
+import { createProgressBar } from '../views/progressBar.js';
+import { initWelcomePage } from '../pages/welcomePage.js';
+import { SkipButton } from '../actions/SkipButton.js';
 
 export const initQuestionPage = () => {
   const totalQuestions = quizData.questions.length;
@@ -15,7 +22,7 @@ export const initQuestionPage = () => {
 
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = '';
-
+  
   // Create and append progress bar showing current question out of total
   const progressBarElement = createProgressBar(
     currentIndex + 1,
@@ -33,6 +40,8 @@ export const initQuestionPage = () => {
   userInterface.appendChild(questionElement);
 
   // Create and append all answer buttons
+  const nextButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
+  const skipButton = document.getElementById(SKIP_QUESTION_BUTTON_ID);
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
     const answerElement = createAnswerElement(key, answerText);
@@ -42,10 +51,27 @@ export const initQuestionPage = () => {
   // Add event listener to the "Next Question" button
   document
     .getElementById(NEXT_QUESTION_BUTTON_ID)
-    .addEventListener('click', nextQuestion);
-};
+    .addEventListener('click', () => {
+      quizData.currentQuestionIndex++;
 
-const nextQuestion = () => {
-  quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
-  initQuestionPage();
+      if (quizData.currentQuestionIndex < quizData.questions.length) {
+        initQuestionPage();
+      } else {
+        const result = showResult();
+
+        result.resetButton.addEventListener('click', () => {
+          quizData.currentQuestionIndex = 0;
+
+
+          quizData.questions.forEach((question) => {
+            question.answers = false;
+            question.selected = null;
+          });
+
+          initWelcomePage();
+        });
+      }
+    });
+  // skip button logic (from external file)
+  SkipButton(skipButton, nextButton, answersListElement, currentQuestion);
 };
