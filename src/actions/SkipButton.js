@@ -36,4 +36,4 @@ export const SkipButton = (
       ButtonVisibility();
     });
   });
-}
+};
