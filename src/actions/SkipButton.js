@@ -1,9 +1,9 @@
-export function SkipButton(
+export const SkipButton = (
   skipButton,
   nextButton,
   answersListElement,
   currentQuestion
-) {
+) => {
   // Create a function to avoid code repetition
   const ButtonVisibility = () => {
     skipButton.style.display = 'none';
