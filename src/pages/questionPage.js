@@ -1,4 +1,5 @@
 import {
+  USER_INTERFACE_ID,
   ANSWERS_LIST_ID,
   NEXT_QUESTION_BUTTON_ID,
   SKIP_QUESTION_BUTTON_ID,
@@ -7,6 +8,7 @@ import {
 
 import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
+import { createProgressBar } from '../views/progressBar.js';
 import { quizData } from '../data.js';
 import { showResult } from '../actions/showResult.js';
 import { createProgressBar } from '../views/progressBar.js';
@@ -20,8 +22,8 @@ export const initQuestionPage = () => {
 
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = '';
-
-  /// Create and append progress bar showing current question out of total
+  
+  // Create and append progress bar showing current question out of total
   const progressBarElement = createProgressBar(
     currentIndex + 1,
     totalQuestions
@@ -33,6 +35,7 @@ export const initQuestionPage = () => {
     quizData.score = 0;
   }
 
+  // Create and append the question element
   const questionElement = createQuestionElement(currentQuestion.text);
   userInterface.appendChild(questionElement);
 
@@ -45,6 +48,7 @@ export const initQuestionPage = () => {
     answersListElement.appendChild(answerElement);
   }
 
+  // Add event listener to the "Next Question" button
   document
     .getElementById(NEXT_QUESTION_BUTTON_ID)
     .addEventListener('click', () => {
@@ -57,6 +61,7 @@ export const initQuestionPage = () => {
 
         result.resetButton.addEventListener('click', () => {
           quizData.currentQuestionIndex = 0;
+
 
           quizData.questions.forEach((question) => {
             question.answers = false;
