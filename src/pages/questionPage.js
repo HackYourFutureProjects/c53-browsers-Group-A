@@ -3,17 +3,15 @@ import {
   ANSWERS_LIST_ID,
   NEXT_QUESTION_BUTTON_ID,
   SKIP_QUESTION_BUTTON_ID,
-  USER_INTERFACE_ID,
 } from '../constants.js';
 
 import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { createProgressBar } from '../views/progressBar.js';
 import { quizData } from '../data.js';
-import { showResult } from '../actions/showResult.js';
-import { createProgressBar } from '../views/progressBar.js';
+import { showResult } from '../views/showResult.js';
 import { initWelcomePage } from '../pages/welcomePage.js';
-import { SkipButton } from '../actions/SkipButton.js';
+import { skipButton } from '../views/skipButton.js';
 
 export const initQuestionPage = () => {
   const totalQuestions = quizData.questions.length;
@@ -35,42 +33,49 @@ export const initQuestionPage = () => {
     quizData.score = 0;
   }
 
-  // Create and append the question element
+  // Question element
   const questionElement = createQuestionElement(currentQuestion.text);
   userInterface.appendChild(questionElement);
 
-  // Create and append all answer buttons
-  const nextButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
-  const skipButton = document.getElementById(SKIP_QUESTION_BUTTON_ID);
-  const answersListElement = document.getElementById(ANSWERS_LIST_ID);
+  // Make content
+  const answersListElement = document.createElement('ul');
+  answersListElement.id = ANSWERS_LIST_ID;
+  userInterface.appendChild(answersListElement);
+
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
     const answerElement = createAnswerElement(key, answerText);
     answersListElement.appendChild(answerElement);
   }
 
+  const nextButton = document.createElement('button');
+  nextButton.id = NEXT_QUESTION_BUTTON_ID;
+  nextButton.textContent = 'Next';
+  userInterface.appendChild(nextButton);
+
+  const skipButton = document.createElement('button');
+  skipButton.id = SKIP_QUESTION_BUTTON_ID;
+  skipButton.textContent = 'Skip';
+  userInterface.appendChild(skipButton);
+
   // Add event listener to the "Next Question" button
-  document
-    .getElementById(NEXT_QUESTION_BUTTON_ID)
-    .addEventListener('click', () => {
-      quizData.currentQuestionIndex++;
+  nextButton.addEventListener('click', () => {
+    quizData.currentQuestionIndex++;
 
-      if (quizData.currentQuestionIndex < quizData.questions.length) {
-        initQuestionPage();
-      } else {
-        const result = showResult();
-
-        result.resetButton.addEventListener('click', () => {
-          quizData.currentQuestionIndex = 0;
-
-          quizData.questions.forEach((question) => {
-            question.answers = false;
-            question.selected = null;
-          });
-
-          initWelcomePage();
+    if (quizData.currentQuestionIndex < quizData.questions.length) {
+      initQuestionPage();
+    } else {
+      const result = showResult();
+      result.resetButton.addEventListener('click', () => {
+        quizData.currentQuestionIndex = 0;
+        quizData.questions.forEach((question) => {
+          question.answers = false;
+          question.selected = null;
         });
-      }
-    });
+        initWelcomePage();
+      });
+    }
+  });
+
   // skip button logic (from external file)
-  SkipButton(skipButton, nextButton, answersListElement, currentQuestion);
+  skipButton(skipButton, nextButton, answersListElement, currentQuestion);
 };

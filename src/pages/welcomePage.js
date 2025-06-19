@@ -5,17 +5,16 @@ import { createProgressBar } from '../views/progressBar.js';
 import { quizData } from '../data.js';
 
 export const initWelcomePage = () => {
-  const userInterface = document.getElementById(USER_INTERFACE_ID);
-  userInterface.innerHTML = '';
-
   const welcomeElement = createWelcomeElement();
   userInterface.appendChild(welcomeElement);
 
   document
     .getElementById(START_QUIZ_BUTTON_ID)
     .addEventListener('click', startQuiz);
+
+  return initQuestionPage;
 };
 
 const startQuiz = () => {
-  initQuestionPage();
+  loadPage(initQuestionPage);
 };

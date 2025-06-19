@@ -1,4 +1,4 @@
-export const SkipButton = (
+export const skipButton = (
   skipButton,
   nextButton,
   answersListElement,
@@ -12,7 +12,7 @@ export const SkipButton = (
 
   skipButton.addEventListener('click', () => {
     currentQuestion.selected = null;
-    currentQuestion.answers = true;
+    currentQuestion.wasSkipped = true; /* fixed, cause not correct */
 
     // Disable answers and highlight correct one
     const answerItems = Array.from(answersListElement.children);
