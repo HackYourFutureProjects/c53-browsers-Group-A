@@ -14,8 +14,8 @@ export const quizData = {
   // the questions in the quiz
   questions: [
     {
-      text:
-        'According to the Agile Manifesto, what is valued more than processes and tools?',
+      id: 'q1',
+      text: 'According to the Agile Manifesto, what is valued more than processes and tools?',
       answers: {
         a: 'Comprehensive documentation',
         b: 'Individuals and interactions',
@@ -27,6 +27,7 @@ export const quizData = {
       links: [],
     },
     {
+      id: 'q2',
       text: 'What is the primary measure of progress in Agile?',
       answers: {
         a: 'Working software',
@@ -39,8 +40,8 @@ export const quizData = {
       links: [],
     },
     {
-      text:
-        'In Scrum, who is responsible for maximizing value and managing the Product Backlog?',
+      id: 'q3',
+      text: 'In Scrum, who is responsible for maximizing value and managing the Product Backlog?',
       answers: {
         a: 'Stakeholders',
         b: 'Scrum Master',
@@ -52,6 +53,7 @@ export const quizData = {
       links: [],
     },
     {
+      id: 'q4',
       text: 'How long is a typical Scrum Sprint?',
       answers: {
         a: '12 weeks',
@@ -64,8 +66,8 @@ export const quizData = {
       links: [],
     },
     {
-      text:
-        'The daily meeting where team members share progress and blockers is called:',
+      id: 'q5',
+      text: 'The daily meeting where team members share progress and blockers is called:',
       answers: {
         a: 'Daily Scrum',
         b: 'Sprint Review',
@@ -77,8 +79,8 @@ export const quizData = {
       links: [],
     },
     {
-      text:
-        'What document lists all desired features and fixes for a product in Scrum?',
+      id: 'q6',
+      text: 'What document lists all desired features and fixes for a product in Scrum?',
       answers: {
         a: 'Project Charter',
         b: 'Sprint Backlog',
@@ -90,6 +92,7 @@ export const quizData = {
       links: [],
     },
     {
+      id: 'q7',
       text: 'Agile welcomes changes even late in development because:',
       answers: {
         a: 'Contracts require it',
@@ -102,8 +105,8 @@ export const quizData = {
       links: [],
     },
     {
-      text:
-        'Which principle promotes a sustainable pace for sponsors, developers, and users?',
+      id: 'q8',
+      text: 'Which principle promotes a sustainable pace for sponsors, developers, and users?',
       answers: {
         a: 'Agile promotes sustainable development',
         b: 'Individuals and interactions',
@@ -115,6 +118,7 @@ export const quizData = {
       links: [],
     },
     {
+      id: 'q9',
       text: 'Who facilitates Scrum events and removes impediments?',
       answers: {
         a: 'User',
@@ -127,8 +131,8 @@ export const quizData = {
       links: [],
     },
     {
-      text:
-        'After each Sprint, the team reflects on how to improve during the:',
+      id: 'q10',
+      text: 'After each Sprint, the team reflects on how to improve during the:',
       answers: {
         a: 'Sprint Retrospective',
         b: 'Sprint Planning',
