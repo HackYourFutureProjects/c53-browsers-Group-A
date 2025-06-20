@@ -3,8 +3,8 @@
  * @returns {Element}
  */
 
-import { saveUserAnswer } from '../utils/localStorage.js';
-import { highlightAnswer } from '../utils/highlightAnswer.js';
+import { saveUserAnswer } from './localStorage.js';
+import { highlightAnswer } from './highlightAnswer.js';
 
 export const createAnswerElement = (
   key,

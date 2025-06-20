@@ -13,8 +13,8 @@ import { quizData } from '../data.js';
 import { showResult } from '../actions/showResult.js';
 import { initWelcomePage } from '../pages/welcomePage.js';
 import { SkipButton } from '../actions/SkipButton.js';
-import { getUserAnswer } from '../utils/localStorage.js';
-import { highlightAnswer } from '../utils/highlightAnswer.js';
+import { getUserAnswer } from '../views/localStorage.js';
+import { highlightAnswer } from '../views/highlightAnswer.js';
 
 let isFirstInit = true;
 
@@ -56,7 +56,7 @@ export const initQuestionPage = () => {
     const answerElement = createAnswerElement(
       key,
       answerText,
-      currentQuestion.correct, // передаём правильный ответ
+      currentQuestion.correct,
       currentQuestion.id
     );
     answersListElement.appendChild(answerElement);
