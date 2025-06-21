@@ -3,7 +3,7 @@ import {
   ANSWERS_LIST_ID,
   NEXT_QUESTION_BUTTON_ID,
   SKIP_QUESTION_BUTTON_ID,
-  USER_INTERFACE_ID,
+  RESET_QUESTION_BUTTON_ID,
 } from '../constants.js';
 
 import { createQuestionElement } from '../views/questionView.js';
@@ -11,18 +11,25 @@ import { createAnswerElement } from '../views/answerView.js';
 import { createProgressBar } from '../views/progressBar.js';
 import { quizData } from '../data.js';
 import { showResult } from '../views/showResult.js';
-import { createProgressBar } from '../views/progressBar.js';
-import { initWelcomePage } from '../pages/welcomePage.js';
+import { initWelcomePage } from '../views/welcomePage.js';
 import { SkipButton } from '../views/SkipButton.js';
+import { getUserAnswer } from '../views/localStorage.js';
+import { highlightAnswer } from '../views/highlightAnswer.js';
 
 export const initQuestionPage = () => {
+  if (isFirstInit) {
+    localStorage.removeItem('userAnswers');
+    isFirstInit = false;
+  }
+
   const totalQuestions = quizData.questions.length;
   const currentIndex = quizData.currentQuestionIndex;
   const currentQuestion = quizData.questions[currentIndex];
+  const savedAnswer = getUserAnswer(currentQuestion.id);
 
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = '';
-  
+
   // Create and append progress bar showing current question out of total
   const progressBarElement = createProgressBar(
     currentIndex + 1,
@@ -44,8 +51,16 @@ export const initQuestionPage = () => {
   const skipButton = document.getElementById(SKIP_QUESTION_BUTTON_ID);
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
-    const answerElement = createAnswerElement(key, answerText);
+    const answerElement = createAnswerElement(
+      key,
+      answerText,
+      currentQuestion.correct,
+      currentQuestion.id
+    );
     answersListElement.appendChild(answerElement);
+  }
+  if (savedAnswer) {
+    highlightAnswer(savedAnswer, currentQuestion.correct);
   }
 
   // Add event listener to the "Next Question" button
@@ -62,15 +77,31 @@ export const initQuestionPage = () => {
         result.resetButton.addEventListener('click', () => {
           quizData.currentQuestionIndex = 0;
 
-
           quizData.questions.forEach((question) => {
             question.selected = null;
           });
 
+          localStorage.removeItem('userAnswers');
           initWelcomePage();
+          isFirstInit = true;
         });
       }
     });
   // skip button logic (from external file)
   SkipButton(skipButton, nextButton, answersListElement, currentQuestion);
+
+  const resetButton = document.getElementById(RESET_QUESTION_BUTTON_ID);
+  if (resetButton) {
+    resetButton.addEventListener('click', () => {
+      quizData.currentQuestionIndex = 0;
+
+      quizData.questions.forEach((question) => {
+        question.selected = null;
+      });
+
+      localStorage.removeItem('userAnswers');
+      initWelcomePage();
+      isFirstInit = true;
+    });
+  }
 };
