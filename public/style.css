@@ -1,3 +1,83 @@
+/* 🌈 Яркий градиентный фон */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: linear-gradient(135deg, #ff6b6b, #f8e71c, #7ed6df, #a29bfe);
+  background-size: 600% 600%;
+  animation: rainbowFlow 15s ease infinite;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+@keyframes rainbowFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.welcome-container {
+  width: 100%;
+  max-width: 500px;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.welcome-title {
+  font-size: 2.2rem;
+  color: #2d3436;
+  margin-bottom: 16px;
+}
+
+.welcome-description {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 28px;
+}
+
+.start-button {
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #00b894, #0984e3);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition:
+    transform 0.2s ease,
+    background-color 0.3s ease;
+}
+
+.start-button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #00cec9, #6c5ce7);
+}
+
 .centered {
   position: fixed;
   top: 50%;
