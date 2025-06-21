@@ -52,6 +52,7 @@ export const initQuestionPage = () => {
   const nextButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
   const skipButton = document.getElementById(SKIP_QUESTION_BUTTON_ID);
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
+
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
     const answerElement = createAnswerElement(
       key,
