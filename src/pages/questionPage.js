@@ -16,7 +16,6 @@ import { SkipButton } from '../views/SkipButton.js';
 import { getUserAnswer } from '../views/localStorage.js';
 import { highlightAnswer } from '../views/highlightAnswer.js';
 
-
 let isFirstInit = true;
 export const initQuestionPage = () => {
   if (isFirstInit) {
