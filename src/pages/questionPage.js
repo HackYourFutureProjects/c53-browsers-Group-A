@@ -8,10 +8,10 @@ import {
 import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { quizData } from '../data.js';
-import { showResult } from '../actions/showResult.js';
+import { showResult } from '../views/showResult.js';
 import { createProgressBar } from '../views/progressBar.js';
 import { initWelcomePage } from '../pages/welcomePage.js';
-import { SkipButton } from '../actions/SkipButton.js';
+import { SkipButton } from '../views/SkipButton.js';
 
 export const initQuestionPage = () => {
   const totalQuestions = quizData.questions.length;
@@ -59,7 +59,6 @@ export const initQuestionPage = () => {
           quizData.currentQuestionIndex = 0;
 
           quizData.questions.forEach((question) => {
-            question.answers = false;
             question.selected = null;
           });
 
