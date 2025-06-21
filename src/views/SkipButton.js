@@ -12,7 +12,7 @@ export const SkipButton = (
 
   skipButton.addEventListener('click', () => {
     currentQuestion.selected = null;
-    currentQuestion.answers = true;
+    currentQuestion.userAnswerSubmission = true;
 
     // Disable answers and highlight correct one
     const answerItems = Array.from(answersListElement.children);
