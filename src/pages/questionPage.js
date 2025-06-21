@@ -10,14 +10,14 @@ import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { createProgressBar } from '../views/progressBar.js';
 import { quizData } from '../data.js';
-import { showResult } from '../actions/showResult.js';
+import { showResult } from '../views/showResult.js';
 import { initWelcomePage } from '../pages/welcomePage.js';
-import { SkipButton } from '../actions/SkipButton.js';
+import { SkipButton } from '../views/SkipButton.js';
 import { getUserAnswer } from '../views/localStorage.js';
 import { highlightAnswer } from '../views/highlightAnswer.js';
+import { originalQuizData } from '../data.js';
 
 let isFirstInit = true;
-
 export const initQuestionPage = () => {
   if (isFirstInit) {
     localStorage.removeItem('userAnswers');
@@ -52,6 +52,7 @@ export const initQuestionPage = () => {
   const nextButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
   const skipButton = document.getElementById(SKIP_QUESTION_BUTTON_ID);
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
+
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
     const answerElement = createAnswerElement(
       key,
@@ -77,13 +78,7 @@ export const initQuestionPage = () => {
         const result = showResult();
 
         result.resetButton.addEventListener('click', () => {
-          quizData.currentQuestionIndex = 0;
-
-          quizData.questions.forEach((question) => {
-            question.answers = false;
-            question.selected = null;
-          });
-
+          Object.assign(quizData, structuredClone(originalQuizData));
           localStorage.removeItem('userAnswers');
           initWelcomePage();
           isFirstInit = true;
@@ -96,12 +91,7 @@ export const initQuestionPage = () => {
   const resetButton = document.getElementById(RESET_QUESTION_BUTTON_ID);
   if (resetButton) {
     resetButton.addEventListener('click', () => {
-      quizData.currentQuestionIndex = 0;
-
-      quizData.questions.forEach((question) => {
-        question.selected = null;
-      });
-
+      Object.assign(quizData, structuredClone(originalQuizData));
       localStorage.removeItem('userAnswers');
       initWelcomePage();
       isFirstInit = true;
