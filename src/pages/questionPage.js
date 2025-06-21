@@ -11,11 +11,13 @@ import { createAnswerElement } from '../views/answerView.js';
 import { createProgressBar } from '../views/progressBar.js';
 import { quizData } from '../data.js';
 import { showResult } from '../views/showResult.js';
-import { initWelcomePage } from '../views/welcomePage.js';
+import { initWelcomePage } from '../pages/welcomePage.js';
 import { SkipButton } from '../views/SkipButton.js';
 import { getUserAnswer } from '../views/localStorage.js';
 import { highlightAnswer } from '../views/highlightAnswer.js';
 
+
+let isFirstInit = true;
 export const initQuestionPage = () => {
   if (isFirstInit) {
     localStorage.removeItem('userAnswers');
