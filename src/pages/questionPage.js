@@ -8,7 +8,7 @@ import {
 
 import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
-import { createProgressBar } from '../views/progressBar.js';
+import { createProgressBar, updateProgressBar } from '../views/progressBar.js';
 import { quizData } from '../data.js';
 import { showResult } from '../views/showResult.js';
 import { initWelcomePage } from '../pages/welcomePage.js';
@@ -18,6 +18,8 @@ import { highlightAnswer } from '../views/highlightAnswer.js';
 import { originalQuizData } from '../data.js';
 
 let isFirstInit = true;
+let progressBarElement = null;
+
 export const initQuestionPage = () => {
   if (isFirstInit) {
     localStorage.removeItem('userAnswers');
@@ -33,11 +35,16 @@ export const initQuestionPage = () => {
   userInterface.innerHTML = '';
 
   // Create and append progress bar showing current question out of total
-  const progressBarElement = createProgressBar(
-    currentIndex + 1,
-    totalQuestions
-  );
-  userInterface.appendChild(progressBarElement);
+  if (!progressBarElement) {
+    progressBarElement = createProgressBar();
+    userInterface.appendChild(progressBarElement);
+  } else {
+    userInterface.appendChild(progressBarElement);
+  }
+
+  requestAnimationFrame(() => {
+    updateProgressBar(currentIndex, totalQuestions);
+  });
 
   // Placeholder: score is stored here (can be shown or used later)
   if (quizData.score === undefined) {
@@ -82,6 +89,8 @@ export const initQuestionPage = () => {
           localStorage.removeItem('userAnswers');
           initWelcomePage();
           isFirstInit = true;
+
+          progressBarElement = null;
         });
       }
     });
@@ -95,6 +104,8 @@ export const initQuestionPage = () => {
       localStorage.removeItem('userAnswers');
       initWelcomePage();
       isFirstInit = true;
+
+      progressBarElement = null;
     });
   }
 };
